@@ -45,10 +45,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -121,8 +127,78 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\List.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\account.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\address_Book.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APP_ROLE.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APP_USER.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bill.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bill_Details.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cart.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\comment.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C_TransactionIndex_237b54d1_d71b_4693_9336_2c1897920f9b.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\findAssociation.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelGiay.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelGiay.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelGiay.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelGiay.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelGiay.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\option.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Persistent_Logins.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\replycomment.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\review.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sho.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER_ROLE.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\viewHistory.cs">
+      <DependentUpon>ModelGiay.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,6 +247,8 @@
     <Content Include="img\banner\common-banner.jpg" />
     <Content Include="img\banner\next.png" />
     <Content Include="img\banner\prev.png" />
+    <Content Include="img\BF001.jpg" />
+    <Content Include="img\BF002.jpg" />
     <Content Include="img\blog\add.jpg" />
     <Content Include="img\blog\author.png" />
     <Content Include="img\blog\c1.jpg" />
@@ -209,6 +287,7 @@
     <Content Include="img\brand\4.png" />
     <Content Include="img\brand\5.png" />
     <Content Include="img\cart.jpg" />
+    <Content Include="img\Cart.png" />
     <Content Include="img\category\c1.jpg" />
     <Content Include="img\category\c2.jpg" />
     <Content Include="img\category\c3.jpg" />
@@ -320,6 +399,8 @@
     <Content Include="img\organic-food\u1.png" />
     <Content Include="img\organic-food\u2.png" />
     <Content Include="img\organic-food\u3.png" />
+    <Content Include="img\PR45E901.jpg" />
+    <Content Include="img\PR6EEB8F.jpg" />
     <Content Include="img\product\card.jpg" />
     <Content Include="img\product\e-p1.png" />
     <Content Include="img\product\next.png" />
@@ -353,6 +434,35 @@
     <Content Include="img\sd\c3.jpg" />
     <Content Include="img\sd\c4.jpg" />
     <Content Include="img\sd\c5.jpg" />
+    <Content Include="img\SH001.jpg" />
+    <Content Include="img\SH002.jpg" />
+    <Content Include="img\SH003.jpg" />
+    <Content Include="img\SH004.jpg" />
+    <Content Include="img\SH005.jpg" />
+    <Content Include="img\SH006.jpg" />
+    <Content Include="img\SH007.jpg" />
+    <Content Include="img\SH008.jpg" />
+    <Content Include="img\SK001.jpg" />
+    <Content Include="img\SK002.jpg" />
+    <Content Include="img\SK003.jpg" />
+    <Content Include="img\SK004.jpg" />
+    <Content Include="img\SK005.jpg" />
+    <Content Include="img\SK006.jpg" />
+    <Content Include="img\SL001.jpg" />
+    <Content Include="img\SL002.jpg" />
+    <Content Include="img\SL003.jpg" />
+    <Content Include="img\SL004.jpg" />
+    <Content Include="img\SL005.jpg" />
+    <Content Include="Models\ModelGiay.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelGiay.Context.cs</LastGenOutput>
+      <DependentUpon>ModelGiay.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModelGiay.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelGiay.edmx</DependentUpon>
+      <LastGenOutput>ModelGiay.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\.DS_Store" />
     <Content Include="Scripts\countdown.js" />
     <Content Include="Scripts\gmaps.min.js" />
@@ -387,7 +497,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_LocalResources\" />
     <Folder Include="App_Themes\Theme1\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -400,7 +509,32 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="img\.DS_Store" />
     <Content Include="img\organic-food\.DS_Store" />
+    <EntityDeploy Include="Models\ModelGiay.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelGiay.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelGiay.edmx.diagram">
+      <DependentUpon>ModelGiay.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
+    <Content Include="scss\.DS_Store" />
+    <Content Include="scss\main.scss" />
+    <Content Include="scss\theme\_banner.scss" />
+    <Content Include="scss\theme\_blog.scss" />
+    <Content Include="scss\theme\_common.scss" />
+    <Content Include="scss\theme\_contact.scss" />
+    <Content Include="scss\theme\_elements.scss" />
+    <Content Include="scss\theme\_footer.scss" />
+    <Content Include="scss\theme\_header.scss" />
+    <Content Include="scss\theme\_home.scss" />
+    <Content Include="scss\theme\_mixins.scss" />
+    <Content Include="scss\theme\_predefine.scss" />
+    <Content Include="scss\theme\_product.scss" />
+    <Content Include="scss\theme\_reset.scss" />
+    <Content Include="scss\theme\_variables.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
